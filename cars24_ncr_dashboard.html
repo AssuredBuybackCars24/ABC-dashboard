@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Assured Buyback Champion – Mar 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #3D35E8;
+    --blue-dark: #2a24b0;
+    --blue-mid: #4e46f5;
+    --blue-light: #7b75ff;
+    --orange: #FF6B1A;
+    --orange-light: #FF8C42;
+    --gold: #FFD700;
+    --silver: #C0C0C0;
+    --bronze: #CD7F32;
+    --green: #22c55e;
+    --red: #ef4444;
+    --white: #ffffff;
+    --bg: #0d0b2e;
+    --card: #13104a;
+    --card2: #1a1660;
+    --border: rgba(255,255,255,0.08);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--bg);
+    color: var(--white);
+    min-height: 100vh;
+    padding: 20px;
+    background-image:
+      radial-gradient(ellipse at 10% 10%, rgba(61,53,232,0.35) 0%, transparent 55%),
+      radial-gradient(ellipse at 90% 80%, rgba(255,107,26,0.2) 0%, transparent 50%);
+  }
+
+  /* ─── WRAPPER ─── */
+  .dashboard {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* ─── SECTION CARD ─── */
+  .card {
+    background: var(--card);
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.06);
+  }
+
+  /* ════════════════════════════════
+     SECTION 1 – HERO BANNER
+  ════════════════════════════════ */
+  .section1 {
+    background: linear-gradient(135deg, #1a0f6e 0%, #0d0b2e 40%, #2a1200 100%);
+    border: 1.5px solid rgba(255,107,26,0.3);
+    padding: 32px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .section1::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(255,107,26,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .section1::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: 40px;
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(61,53,232,0.25) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .s1-inner {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .s1-left { flex: 1; min-width: 280px; }
+  .logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .logo-box {
+    width: 44px; height: 44px;
+    background: var(--blue);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .logo-box svg { width: 28px; height: 28px; }
+  .logo-text {
+    font-size: 22px; font-weight: 800;
+    color: var(--blue);
+    letter-spacing: -0.5px;
+  }
+  .contest-title {
+    font-size: clamp(22px, 3vw, 32px);
+    font-weight: 900;
+    line-height: 1.15;
+    background: linear-gradient(90deg, #fff 0%, var(--orange-light) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .meta-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+  }
+  .pill {
+    padding: 5px 14px;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+  }
+  .pill-blue { background: rgba(61,53,232,0.35); border: 1px solid var(--blue-light); color: #adadff; }
+  .pill-orange { background: rgba(255,107,26,0.25); border: 1px solid var(--orange); color: #ffb380; }
+  .pill-green { background: rgba(34,197,94,0.2); border: 1px solid var(--green); color: #86efac; }
+
+  .s1-right {
+    text-align: center;
+    flex-shrink: 0;
+  }
+  .reward-box {
+    background: linear-gradient(135deg, rgba(255,107,26,0.15), rgba(255,180,60,0.1));
+    border: 2px solid var(--orange);
+    border-radius: 18px;
+    padding: 20px 28px;
+    position: relative;
+    min-width: 240px;
+  }
+  .reward-label {
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--orange-light); margin-bottom: 6px;
+  }
+  .reward-icon { font-size: 48px; line-height: 1; margin: 4px 0; }
+  .reward-title {
+    font-size: 20px; font-weight: 900;
+    color: var(--white); text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .reward-sub {
+    font-size: 13px; font-weight: 600;
+    color: var(--orange-light); margin-top: 4px;
+  }
+  .reveal-badge {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 14px;
+    border-radius: 50px;
+    background: var(--orange);
+    font-size: 10px; font-weight: 800;
+    letter-spacing: 1px; text-transform: uppercase;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%,100% { box-shadow: 0 0 0 0 rgba(255,107,26,0.5); }
+    50% { box-shadow: 0 0 0 8px rgba(255,107,26,0); }
+  }
+  .data-note {
+    text-align: center;
+    font-size: 11px; font-weight: 600;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.5px;
+    margin-top: 4px;
+  }
+  .data-note span { color: var(--orange-light); }
+
+  /* ════════════════════════════════
+     SECTION 2 – TOTAL PERFORMANCE
+  ════════════════════════════════ */
+  .section2 { padding: 28px 32px; }
+  .sec-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 22px;
+  }
+  .sec-label {
+    font-size: 11px; font-weight: 800;
+    letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--orange-light);
+  }
+  .sec-line { flex: 1; height: 1px; background: var(--border); }
+  .perf-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .perf-block {
+    border-radius: 14px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .perf-block.ftd {
+    background: linear-gradient(135deg, rgba(61,53,232,0.3), rgba(61,53,232,0.1));
+    border: 1px solid rgba(61,53,232,0.5);
+  }
+  .perf-block.mtd {
+    background: linear-gradient(135deg, rgba(255,107,26,0.2), rgba(255,107,26,0.05));
+    border: 1px solid rgba(255,107,26,0.4);
+  }
+  .pb-tag {
+    font-size: 10px; font-weight: 800;
+    letter-spacing: 2px; text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .ftd .pb-tag { color: var(--blue-light); }
+  .mtd .pb-tag { color: var(--orange-light); }
+  .pb-desc {
+    font-size: 11px; font-weight: 500;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 16px;
+  }
+  .stat-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .stat {
+    flex: 1;
+    min-width: 80px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 10px;
+    padding: 12px 14px;
+    text-align: center;
+  }
+  .stat-num {
+    font-size: 28px; font-weight: 900;
+    line-height: 1;
+  }
+  .ftd .stat-num { color: #a5a0ff; }
+  .mtd .stat-num { color: #ffb380; }
+  .stat-label {
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 1px; text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    margin-top: 4px;
+  }
+  .attach-num-green { color: var(--green) !important; }
+  .attach-num-red { color: var(--red) !important; }
+
+  /* ════════════════════════════════
+     SECTION 3 – TOP 10 PERFORMERS
+  ════════════════════════════════ */
+  .section3 { padding: 28px 32px; }
+  .tops-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .top-block { }
+  .top-title {
+    font-size: 13px; font-weight: 800;
+    text-transform: uppercase; letter-spacing: 1.5px;
+    margin-bottom: 14px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .ftd-title { color: var(--blue-light); }
+  .mtd-title { color: var(--orange-light); }
+
+  /* Podium (horizontal 2-1-3) */
+  .podium {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 18px;
+    height: 140px;
+  }
+  .pod-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+  .pod-avatar {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; font-weight: 900;
+    margin-bottom: 4px;
+    position: relative;
+    flex-shrink: 0;
+  }
+  .pod-1 .pod-avatar { background: linear-gradient(135deg, #ffd700, #ff9500); box-shadow: 0 0 16px rgba(255,215,0,0.5); width: 52px; height: 52px; font-size: 18px; }
+  .pod-2 .pod-avatar { background: linear-gradient(135deg, #9d9d9d, #c8c8c8); }
+  .pod-3 .pod-avatar { background: linear-gradient(135deg, #8B5A2B, #CD7F32); }
+  .pod-name { font-size: 9px; font-weight: 700; text-align: center; line-height: 1.2; color: rgba(255,255,255,0.9); max-width: 70px; word-break: break-word; }
+  .pod-abc { font-size: 11px; font-weight: 900; margin-top: 2px; }
+  .pod-1 .pod-abc { color: var(--gold); }
+  .pod-2 .pod-abc { color: var(--silver); }
+  .pod-3 .pod-abc { color: var(--bronze); }
+  .pod-attach { font-size: 9px; font-weight: 700; }
+
+  .pod-stand {
+    width: 100%;
+    border-radius: 6px 6px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px; font-weight: 900;
+  }
+  .pod-1 .pod-stand { height: 60px; background: linear-gradient(180deg, rgba(255,215,0,0.3), rgba(255,150,0,0.15)); border: 1px solid rgba(255,215,0,0.4); }
+  .pod-2 .pod-stand { height: 44px; background: linear-gradient(180deg, rgba(192,192,192,0.2), rgba(192,192,192,0.05)); border: 1px solid rgba(192,192,192,0.3); }
+  .pod-3 .pod-stand { height: 32px; background: linear-gradient(180deg, rgba(205,127,50,0.2), rgba(205,127,50,0.05)); border: 1px solid rgba(205,127,50,0.3); }
+
+  /* Leaderboard table */
+  .lb-table { width: 100%; border-collapse: collapse; }
+  .lb-table th {
+    font-size: 9px; font-weight: 800;
+    text-transform: uppercase; letter-spacing: 1px;
+    color: rgba(255,255,255,0.4);
+    padding: 6px 8px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  .lb-table td {
+    font-size: 11px; font-weight: 600;
+    padding: 7px 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .lb-table tr:hover td { background: rgba(255,255,255,0.03); }
+  .rank-badge {
+    display: inline-flex;
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 800;
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.6);
+  }
+  .rank-1 { background: rgba(255,215,0,0.2); color: var(--gold); }
+  .rank-2 { background: rgba(192,192,192,0.2); color: var(--silver); }
+  .rank-3 { background: rgba(205,127,50,0.2); color: var(--bronze); }
+  .attach-green { color: var(--green); font-weight: 700; }
+  .attach-red { color: var(--red); font-weight: 700; }
+  .attach-dash { color: rgba(255,255,255,0.3); }
+
+  /* ════════════════════════════════
+     SECTION 4 – ZERO SCORERS
+  ════════════════════════════════ */
+  .section4 { padding: 28px 32px; }
+  .zero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .zero-block { }
+  .zero-names {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .zero-name-tag {
+    padding: 5px 12px;
+    border-radius: 8px;
+    font-size: 11px; font-weight: 700;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.6);
+    display: flex; align-items: center; gap: 5px;
+  }
+  .zero-name-tag::before { content: '○'; font-size: 8px; opacity: 0.5; }
+  .motivation-box {
+    background: linear-gradient(135deg, rgba(255,107,26,0.12), rgba(61,53,232,0.1));
+    border: 1px solid rgba(255,107,26,0.25);
+    border-radius: 12px;
+    padding: 14px 16px;
+  }
+  .motivation-text {
+    font-size: 12px; font-weight: 700;
+    color: rgba(255,255,255,0.75);
+    font-style: italic;
+    line-height: 1.5;
+  }
+  .motivation-text::before { content: '"'; color: var(--orange-light); font-size: 20px; line-height: 0; vertical-align: -6px; margin-right: 4px; }
+  .motivation-text::after { content: '"'; color: var(--orange-light); font-size: 20px; line-height: 0; vertical-align: -6px; margin-left: 4px; }
+
+  /* Divider between FTD/MTD */
+  .divider {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: rgba(255,255,255,0.2);
+  }
+  .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 700px) {
+    body { padding: 10px; }
+    .perf-grid, .tops-container, .zero-grid { grid-template-columns: 1fr; }
+    .s1-inner { flex-direction: column; }
+    .reward-box { min-width: unset; width: 100%; }
+  }
+</style>
+</head>
+<body>
+<div class="dashboard">
+
+  <!-- ════════ SECTION 1 – HERO ════════ -->
+  <div class="card section1">
+    <div class="s1-inner">
+      <div class="s1-left">
+        <div class="logo-wrap">
+          <div class="logo-box">
+            <!-- Cars24 logo SVG approximation -->
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="8" fill="#3D35E8"/>
+              <path d="M20 8C13.373 8 8 13.373 8 20C8 26.627 13.373 32 20 32C26.627 32 32 26.627 32 20C32 13.373 26.627 8 20 8ZM20 12C24.418 12 28 15.582 28 20C28 24.418 24.418 28 20 28C15.582 28 12 24.418 12 20C12 15.582 15.582 12 20 12Z" fill="white" opacity="0.3"/>
+              <path d="M20 14C16.686 14 14 16.686 14 20C14 23.314 16.686 26 20 26C21.8 26 23.42 25.22 24.56 23.98L22.44 22.12C21.84 22.68 21.06 23 20.2 23C18.32 23 16.8 21.48 16.8 19.6C16.8 17.72 18.32 16.2 20.2 16.2C21.8 16.2 23.14 17.26 23.52 18.72L26.38 17.92C25.66 15.68 23.52 14 20 14Z" fill="white"/>
+            </svg>
+          </div>
+          <span class="logo-text">Cars24</span>
+        </div>
+        <div class="contest-title">Assured Buyback<br>Champion</div>
+        <div class="meta-pills">
+          <span class="pill pill-blue">📅 March 2026</span>
+          <span class="pill pill-orange">🗺️ Region: NCR</span>
+          <span class="pill pill-green">🏆 Top Performer Reward</span>
+        </div>
+        <div style="margin-top:14px; font-size:12px; font-weight:600; color:rgba(255,255,255,0.5); line-height:1.6;">
+          🎯 Ranking based on <span style="color:#a5a0ff; font-weight:800;">ABC Count</span> & <span style="color:#ffb380; font-weight:800;">Attach Rate</span>
+        </div>
+      </div>
+      <div class="s1-right">
+        <div class="reward-box">
+          <div class="reward-label">🎖️ Contest Reward</div>
+          <div class="reward-icon">✈️</div>
+          <div class="reward-title">Win a Trip!</div>
+          <div class="reward-sub">Regional Toppers Only</div>
+          <div class="reveal-badge">🌍 Destination Reveal Soon!</div>
+        </div>
+      </div>
+    </div>
+    <div class="data-note" style="margin-top:14px; position:relative; z-index:2;">
+      ⏱️ Data available till FTD date: <span>17-Mar-2026</span> &nbsp;|&nbsp; FTD = Yesterday's Performance &nbsp;|&nbsp; MTD = Mar 2026 Till Date
+    </div>
+  </div>
+
+  <!-- ════════ SECTION 2 – TOTALS ════════ -->
+  <div class="card section2">
+    <div class="sec-header">
+      <span class="sec-label">📊 Performance Overview</span>
+      <div class="sec-line"></div>
+    </div>
+    <div class="perf-grid">
+      <!-- FTD -->
+      <div class="perf-block ftd">
+        <div class="pb-tag">⚡ FTD – 17 Mar 2026</div>
+        <div class="pb-desc">Yesterday's Performance</div>
+        <div class="stat-row">
+          <div class="stat">
+            <div class="stat-num">43</div>
+            <div class="stat-label">Disbursal</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">9</div>
+            <div class="stat-label">ABC Count</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num attach-num-green">20.93%</div>
+            <div class="stat-label">Attach %</div>
+          </div>
+        </div>
+      </div>
+      <!-- MTD -->
+      <div class="perf-block mtd">
+        <div class="pb-tag">📈 MTD – Mar 2026</div>
+        <div class="pb-desc">Month-to-Date Performance</div>
+        <div class="stat-row">
+          <div class="stat">
+            <div class="stat-num">372</div>
+            <div class="stat-label">Disbursal</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">73</div>
+            <div class="stat-label">ABC Count</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num attach-num-red">19.62%</div>
+            <div class="stat-label">Attach %</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ SECTION 3 – TOP 10 ════════ -->
+  <div class="card section3">
+    <div class="sec-header">
+      <span class="sec-label">🏅 Top 10 Performers</span>
+      <div class="sec-line"></div>
+    </div>
+    <div class="tops-container">
+
+      <!-- FTD Top 10 -->
+      <div class="top-block">
+        <div class="top-title ftd-title">⚡ FTD – 17 Mar 2026</div>
+        <!-- Podium 2-1-3 -->
+        <div class="podium">
+          <!-- 2nd -->
+          <div class="pod-item pod-2" style="justify-content:flex-end;">
+            <div class="pod-avatar">SK</div>
+            <div class="pod-name">Sanjay Kumar72</div>
+            <div class="pod-abc">2 ABC</div>
+            <div class="pod-attach attach-red">0.00%</div>
+            <div class="pod-stand">🥈</div>
+          </div>
+          <!-- 1st -->
+          <div class="pod-item pod-1" style="justify-content:flex-end;">
+            <div class="pod-avatar">AK</div>
+            <div class="pod-name">Ankush Kumar</div>
+            <div class="pod-abc">1 ABC</div>
+            <div class="pod-attach attach-green">100%</div>
+            <div class="pod-stand">🥇</div>
+          </div>
+          <!-- 3rd -->
+          <div class="pod-item pod-3" style="justify-content:flex-end;">
+            <div class="pod-avatar">RS</div>
+            <div class="pod-name">Rahul Sharma98</div>
+            <div class="pod-abc">2 ABC</div>
+            <div class="pod-attach attach-green">100%</div>
+            <div class="pod-stand">🥉</div>
+          </div>
+        </div>
+        <!-- Table ranks 4-10 -->
+        <table class="lb-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Disb</th>
+              <th>ABC</th>
+              <th>Attach</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="rank-badge">4</span></td><td>Vimal Kumar</td><td>2</td><td>1</td><td class="attach-green">50.00%</td></tr>
+            <tr><td><span class="rank-badge">5</span></td><td>Kaleem Khan</td><td>4</td><td>2</td><td class="attach-green">50.00%</td></tr>
+            <tr><td><span class="rank-badge">6</span></td><td>Lokendra Singh</td><td>1</td><td>1</td><td class="attach-green">100.00%</td></tr>
+            <tr><td><span class="rank-badge">7</span></td><td>Ravinder Kumar</td><td>1</td><td>1</td><td class="attach-green">100.00%</td></tr>
+            <tr><td><span class="rank-badge">8</span></td><td>Vikas Thapar</td><td>2</td><td>1</td><td class="attach-green">50.00%</td></tr>
+            <tr><td><span class="rank-badge">9</span></td><td>Rohit Jha</td><td>1</td><td>0</td><td class="attach-red">0.00%</td></tr>
+            <tr><td><span class="rank-badge">10</span></td><td>Shubham Jha</td><td>1</td><td>0</td><td class="attach-red">0.00%</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- MTD Top 10 -->
+      <div class="top-block">
+        <div class="top-title mtd-title">📈 MTD – Mar 2026</div>
+        <!-- Podium 2-1-3 -->
+        <div class="podium">
+          <!-- 2nd -->
+          <div class="pod-item pod-2" style="justify-content:flex-end;">
+            <div class="pod-avatar">SS</div>
+            <div class="pod-name">Subham Singh</div>
+            <div class="pod-abc">9 ABC</div>
+            <div class="pod-attach attach-green">47.37%</div>
+            <div class="pod-stand">🥈</div>
+          </div>
+          <!-- 1st -->
+          <div class="pod-item pod-1" style="justify-content:flex-end;">
+            <div class="pod-avatar">AK</div>
+            <div class="pod-name">Ankush Kumar</div>
+            <div class="pod-abc">12 ABC</div>
+            <div class="pod-attach attach-green">63.16%</div>
+            <div class="pod-stand">🥇</div>
+          </div>
+          <!-- 3rd -->
+          <div class="pod-item pod-3" style="justify-content:flex-end;">
+            <div class="pod-avatar">RS</div>
+            <div class="pod-name">Rahul Sharma98</div>
+            <div class="pod-abc">8 ABC</div>
+            <div class="pod-attach attach-green">44.44%</div>
+            <div class="pod-stand">🥉</div>
+          </div>
+        </div>
+        <!-- Table ranks 4-10 -->
+        <table class="lb-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Disb</th>
+              <th>ABC</th>
+              <th>Attach</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="rank-badge">4</span></td><td>Vimal Kumar</td><td>17</td><td>6</td><td class="attach-green">35.29%</td></tr>
+            <tr><td><span class="rank-badge">5</span></td><td>Kaleem Khan</td><td>17</td><td>6</td><td class="attach-green">35.29%</td></tr>
+            <tr><td><span class="rank-badge">6</span></td><td>Sanjay Kumar72</td><td>12</td><td>4</td><td class="attach-green">33.33%</td></tr>
+            <tr><td><span class="rank-badge">7</span></td><td>Lokendra Singh</td><td>14</td><td>4</td><td class="attach-green">28.57%</td></tr>
+            <tr><td><span class="rank-badge">8</span></td><td>Ravinder Kumar</td><td>14</td><td>4</td><td class="attach-green">28.57%</td></tr>
+            <tr><td><span class="rank-badge">9</span></td><td>Ghasi Ram</td><td>14</td><td>3</td><td class="attach-green">21.43%</td></tr>
+            <tr><td><span class="rank-badge">10</span></td><td>Govind Govind</td><td>15</td><td>3</td><td class="attach-green">20.00%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ SECTION 4 – ZERO SCORERS ════════ -->
+  <div class="card section4">
+    <div class="sec-header">
+      <span class="sec-label">💡 Champions in the Making</span>
+      <div class="sec-line"></div>
+    </div>
+    <div class="zero-grid">
+      <!-- FTD Zeros -->
+      <div class="zero-block">
+        <div class="top-title ftd-title" style="margin-bottom:10px;">⚡ FTD – Zero ABC</div>
+        <div class="zero-names">
+          <span class="zero-name-tag">Ghasi Ram</span>
+          <span class="zero-name-tag">Govind Govind</span>
+          <span class="zero-name-tag">Rohit Jha</span>
+          <span class="zero-name-tag">Shubham Jha</span>
+          <span class="zero-name-tag">Sagar Sagar</span>
+          <span class="zero-name-tag">Hitesh Sharma</span>
+          <span class="zero-name-tag">Subhash Pal</span>
+          <span class="zero-name-tag">Hitik Kohli</span>
+          <span class="zero-name-tag">Ravi Chauhan</span>
+          <span class="zero-name-tag">Rahul Gupta</span>
+          <span class="zero-name-tag">Bhupesh Sohal</span>
+          <span class="zero-name-tag">Dheeraj Gautam</span>
+          <span class="zero-name-tag">Asim Raza</span>
+          <span class="zero-name-tag">Pankaj Pankaj56</span>
+          <span class="zero-name-tag">Paras Kumar5</span>
+          <span class="zero-name-tag">Chetan Sharma</span>
+          <span class="zero-name-tag">Balawan Singh</span>
+          <span class="zero-name-tag">Purushottam S.</span>
+        </div>
+        <div class="motivation-box">
+          <div class="motivation-text">Every champion was once a contender who refused to give up. Today's zero is tomorrow's hero – your comeback story starts NOW! 🚀</div>
+        </div>
+      </div>
+      <!-- MTD Zeros -->
+      <div class="zero-block">
+        <div class="top-title mtd-title" style="margin-bottom:10px;">📈 MTD – Zero ABC</div>
+        <div class="zero-names">
+          <span class="zero-name-tag">Chetan Sharma</span>
+          <span class="zero-name-tag">Balawan Singh</span>
+          <span class="zero-name-tag">Purushottam S.</span>
+          <span class="zero-name-tag">Asim Raza</span>
+          <span class="zero-name-tag">Pankaj Pankaj56</span>
+          <span class="zero-name-tag">Paras Kumar5</span>
+          <span class="zero-name-tag">Dheeraj Gautam</span>
+        </div>
+        <div class="motivation-box">
+          <div class="motivation-text">The scoreboard doesn't define you – but your next move will. You're one deal away from changing everything. Get up, gear up, close up! 💪</div>
+        </div>
+        <div style="margin-top:14px; padding: 12px 16px; border-radius: 12px; background: rgba(255,215,0,0.07); border: 1px solid rgba(255,215,0,0.2);">
+          <div style="font-size:11px; font-weight:800; color:#ffd700; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:6px;">🎯 Remember the Goal</div>
+          <div style="font-size:11px; font-weight:600; color:rgba(255,255,255,0.65); line-height:1.6;">
+            ✈️ Regional Toppers fly away on a Dream Trip!<br>
+            📊 Rank = ABC Count + Attach Rate<br>
+            ⏳ Time is ticking – every disbursal counts!
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer -->
+    <div style="margin-top:20px; padding-top:16px; border-top:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px;">
+      <div style="display:flex; align-items:center; gap:8px;">
+        <div class="logo-box" style="width:32px; height:32px; border-radius:7px;">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:20px;height:20px;">
+            <rect width="40" height="40" rx="8" fill="#3D35E8"/>
+            <path d="M20 8C13.373 8 8 13.373 8 20C8 26.627 13.373 32 20 32C26.627 32 32 26.627 32 20C32 13.373 26.627 8 20 8ZM20 12C24.418 12 28 15.582 28 20C28 24.418 24.418 28 20 28C15.582 28 12 24.418 12 20C12 15.582 15.582 12 20 12Z" fill="white" opacity="0.3"/>
+            <path d="M20 14C16.686 14 14 16.686 14 20C14 23.314 16.686 26 20 26C21.8 26 23.42 25.22 24.56 23.98L22.44 22.12C21.84 22.68 21.06 23 20.2 23C18.32 23 16.8 21.48 16.8 19.6C16.8 17.72 18.32 16.2 20.2 16.2C21.8 16.2 23.14 17.26 23.52 18.72L26.38 17.92C25.66 15.68 23.52 14 20 14Z" fill="white"/>
+          </svg>
+        </div>
+        <span style="font-size:15px; font-weight:800; color:var(--blue); letter-spacing:-0.5px;">Cars24</span>
+      </div>
+      <div style="font-size:10px; font-weight:600; color:rgba(255,255,255,0.3); letter-spacing:1px; text-transform:uppercase;">
+        NCR Region &nbsp;|&nbsp; Assured Buyback Champion &nbsp;|&nbsp; Data till 17-Mar-2026 &nbsp;|&nbsp; 🟢 Attach ≥20% &nbsp; 🔴 Attach &lt;20%
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
